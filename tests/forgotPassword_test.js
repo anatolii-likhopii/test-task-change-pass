@@ -10,8 +10,7 @@ Scenario('forgot password success', async ({ I, customerAccountCreate, customerA
     await customerAccountCreate.sendFormRegistrationSecondStep(registrationUrl, 'Test123!', '1', '2', '3', '4',);
 
     I.wait(5);
-    // I.amOnPage(customerAccountLogout.logoutPageUrl);
-    await customerAccountLogout.logout();
+    await customerAccountLogout.logout(true);
     I.amOnPage(customerAccountLogin.loginPageUrl);
     I.click('a[href="/forgot-password"]');
     I.fillField('E-Mail', mailbox.emailAddress);
